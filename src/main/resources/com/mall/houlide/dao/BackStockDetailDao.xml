@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.houlide.dao.BackStockDetailDao">
+    <resultMap id="BaseResultMap" type="com.mall.houlide.bean.BackStockDetail">
+        <result column="BackStock_ID" property="backstockId" jdbcType="INTEGER"/>
+        <result column="Product_ID" property="productId" jdbcType="INTEGER"/>
+        <result column="Quantity" property="quantity" jdbcType="INTEGER"/>
+        <result column="Price" property="price" jdbcType="DOUBLE"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        <if test="fields == null">
+            BackStock_ID, Product_ID, Quantity, Price
+        </if>
+        <if test="fields != null">
+            ${fields}
+        </if>
+    </sql>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mall.houlide.bean.BackStockDetailQuery">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from back_stock_detail
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="startRow != null">
+            limit #{startRow} , #{pageSize}
+        </if>
+    </select>
+    <delete id="deleteByExample" parameterType="com.mall.houlide.bean.BackStockDetailQuery">
+        delete from back_stock_detail
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.mall.houlide.bean.BackStockDetail">
+        insert into back_stock_detail (BackStock_ID, Product_ID, Quantity,
+        Price)
+        values (#{backstockId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER},
+        #{price,jdbcType=DOUBLE})
+    </insert>
+    <insert id="insertSelective" parameterType="com.mall.houlide.bean.BackStockDetail">
+        insert into back_stock_detail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="backstockId != null">
+                BackStock_ID,
+            </if>
+            <if test="productId != null">
+                Product_ID,
+            </if>
+            <if test="quantity != null">
+                Quantity,
+            </if>
+            <if test="price != null">
+                Price,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="backstockId != null">
+                #{backstockId,jdbcType=INTEGER},
+            </if>
+            <if test="productId != null">
+                #{productId,jdbcType=INTEGER},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=DOUBLE},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.mall.houlide.bean.BackStockDetailQuery"
+            resultType="java.lang.Integer">
+        select count(*) from back_stock_detail
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update back_stock_detail
+        <set>
+            <if test="record.backstockId != null">
+                BackStock_ID = #{record.backstockId,jdbcType=INTEGER},
+            </if>
+            <if test="record.productId != null">
+                Product_ID = #{record.productId,jdbcType=INTEGER},
+            </if>
+            <if test="record.quantity != null">
+                Quantity = #{record.quantity,jdbcType=INTEGER},
+            </if>
+            <if test="record.price != null">
+                Price = #{record.price,jdbcType=DOUBLE},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update back_stock_detail
+        set BackStock_ID = #{record.backstockId,jdbcType=INTEGER},
+        Product_ID = #{record.productId,jdbcType=INTEGER},
+        Quantity = #{record.quantity,jdbcType=INTEGER},
+        Price = #{record.price,jdbcType=DOUBLE}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+</mapper>

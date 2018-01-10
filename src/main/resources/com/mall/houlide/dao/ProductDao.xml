@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.houlide.dao.ProductDao">
+    <resultMap id="BaseResultMap" type="com.mall.houlide.bean.Product">
+        <id column="Product_ID" property="productId" jdbcType="INTEGER"/>
+        <result column="ProductList_ID" property="productlistId" jdbcType="INTEGER"/>
+        <result column="Pro_Name" property="proName" jdbcType="VARCHAR"/>
+        <result column="ProductSpec_ID" property="productspecId" jdbcType="INTEGER"/>
+        <result column="ProductUnit_ID" property="productunitId" jdbcType="INTEGER"/>
+        <result column="Price" property="price" jdbcType="DOUBLE"/>
+        <result column="Employee_ID" property="employeeId" jdbcType="INTEGER"/>
+        <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP"/>
+        <result column="Remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="is_del" property="isDel" jdbcType="BIT"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        <if test="fields == null">
+            Product_ID, ProductList_ID, Pro_Name, ProductSpec_ID, ProductUnit_ID, Price, Employee_ID,
+            CreateDate, Remark, is_del
+        </if>
+        <if test="fields != null">
+            ${fields}
+        </if>
+    </sql>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mall.houlide.bean.ProductQuery">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from product
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="startRow != null">
+            limit #{startRow} , #{pageSize}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        Product_ID,ProductList_ID,Pro_Name,ProductSpec_ID,ProductUnit_ID,Price,Employee_ID,CreateDate,Remark,is_del
+        from product
+        where Product_ID = #{productId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from product
+        where Product_ID = #{productId,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.mall.houlide.bean.ProductQuery">
+        delete from product
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.mall.houlide.bean.Product">
+        insert into product (Product_ID, ProductList_ID, Pro_Name,
+        ProductSpec_ID, ProductUnit_ID, Price,
+        Employee_ID, CreateDate, Remark,
+        is_del)
+        values (#{productId,jdbcType=INTEGER}, #{productlistId,jdbcType=INTEGER}, #{proName,jdbcType=VARCHAR},
+        #{productspecId,jdbcType=INTEGER}, #{productunitId,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE},
+        #{employeeId,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR},
+        #{isDel,jdbcType=BIT})
+    </insert>
+    <insert id="insertSelective" parameterType="com.mall.houlide.bean.Product">
+        insert into product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="productId != null">
+                Product_ID,
+            </if>
+            <if test="productlistId != null">
+                ProductList_ID,
+            </if>
+            <if test="proName != null">
+                Pro_Name,
+            </if>
+            <if test="productspecId != null">
+                ProductSpec_ID,
+            </if>
+            <if test="productunitId != null">
+                ProductUnit_ID,
+            </if>
+            <if test="price != null">
+                Price,
+            </if>
+            <if test="employeeId != null">
+                Employee_ID,
+            </if>
+            <if test="createdate != null">
+                CreateDate,
+            </if>
+            <if test="remark != null">
+                Remark,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="productId != null">
+                #{productId,jdbcType=INTEGER},
+            </if>
+            <if test="productlistId != null">
+                #{productlistId,jdbcType=INTEGER},
+            </if>
+            <if test="proName != null">
+                #{proName,jdbcType=VARCHAR},
+            </if>
+            <if test="productspecId != null">
+                #{productspecId,jdbcType=INTEGER},
+            </if>
+            <if test="productunitId != null">
+                #{productunitId,jdbcType=INTEGER},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=DOUBLE},
+            </if>
+            <if test="employeeId != null">
+                #{employeeId,jdbcType=INTEGER},
+            </if>
+            <if test="createdate != null">
+                #{createdate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.mall.houlide.bean.ProductQuery" resultType="java.lang.Integer">
+        select count(*) from product
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update product
+        <set>
+            <if test="record.productId != null">
+                Product_ID = #{record.productId,jdbcType=INTEGER},
+            </if>
+            <if test="record.productlistId != null">
+                ProductList_ID = #{record.productlistId,jdbcType=INTEGER},
+            </if>
+            <if test="record.proName != null">
+                Pro_Name = #{record.proName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.productspecId != null">
+                ProductSpec_ID = #{record.productspecId,jdbcType=INTEGER},
+            </if>
+            <if test="record.productunitId != null">
+                ProductUnit_ID = #{record.productunitId,jdbcType=INTEGER},
+            </if>
+            <if test="record.price != null">
+                Price = #{record.price,jdbcType=DOUBLE},
+            </if>
+            <if test="record.employeeId != null">
+                Employee_ID = #{record.employeeId,jdbcType=INTEGER},
+            </if>
+            <if test="record.createdate != null">
+                CreateDate = #{record.createdate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.remark != null">
+                Remark = #{record.remark,jdbcType=VARCHAR},
+            </if>
+            <if test="record.isDel != null">
+                is_del = #{record.isDel,jdbcType=BIT},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update product
+        set Product_ID = #{record.productId,jdbcType=INTEGER},
+        ProductList_ID = #{record.productlistId,jdbcType=INTEGER},
+        Pro_Name = #{record.proName,jdbcType=VARCHAR},
+        ProductSpec_ID = #{record.productspecId,jdbcType=INTEGER},
+        ProductUnit_ID = #{record.productunitId,jdbcType=INTEGER},
+        Price = #{record.price,jdbcType=DOUBLE},
+        Employee_ID = #{record.employeeId,jdbcType=INTEGER},
+        CreateDate = #{record.createdate,jdbcType=TIMESTAMP},
+        Remark = #{record.remark,jdbcType=VARCHAR},
+        is_del = #{record.isDel,jdbcType=BIT}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.mall.houlide.bean.Product">
+        update product
+        <set>
+            <if test="productlistId != null">
+                ProductList_ID = #{productlistId,jdbcType=INTEGER},
+            </if>
+            <if test="proName != null">
+                Pro_Name = #{proName,jdbcType=VARCHAR},
+            </if>
+            <if test="productspecId != null">
+                ProductSpec_ID = #{productspecId,jdbcType=INTEGER},
+            </if>
+            <if test="productunitId != null">
+                ProductUnit_ID = #{productunitId,jdbcType=INTEGER},
+            </if>
+            <if test="price != null">
+                Price = #{price,jdbcType=DOUBLE},
+            </if>
+            <if test="employeeId != null">
+                Employee_ID = #{employeeId,jdbcType=INTEGER},
+            </if>
+            <if test="createdate != null">
+                CreateDate = #{createdate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remark != null">
+                Remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=BIT},
+            </if>
+        </set>
+        where Product_ID = #{productId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.mall.houlide.bean.Product">
+        update product
+        set ProductList_ID = #{productlistId,jdbcType=INTEGER},
+        Pro_Name = #{proName,jdbcType=VARCHAR},
+        ProductSpec_ID = #{productspecId,jdbcType=INTEGER},
+        ProductUnit_ID = #{productunitId,jdbcType=INTEGER},
+        Price = #{price,jdbcType=DOUBLE},
+        Employee_ID = #{employeeId,jdbcType=INTEGER},
+        CreateDate = #{createdate,jdbcType=TIMESTAMP},
+        Remark = #{remark,jdbcType=VARCHAR},
+        is_del = #{isDel,jdbcType=BIT}
+        where Product_ID = #{productId,jdbcType=INTEGER}
+    </update>
+</mapper>

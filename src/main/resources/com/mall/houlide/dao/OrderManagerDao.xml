@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.houlide.dao.OrderManagerDao">
+    <resultMap id="BaseResultMap" type="com.mall.houlide.bean.OrderManager">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="order_name" property="orderName" jdbcType="VARCHAR"/>
+        <result column="order_buy_name" property="orderBuyName" jdbcType="VARCHAR"/>
+        <result column="order_xs_state" property="orderXsState" jdbcType="BIT"/>
+        <result column="order_cg_state" property="orderCgState" jdbcType="BIT"/>
+        <result column="order_dept_name" property="orderDeptName" jdbcType="VARCHAR"/>
+        <result column="order_zbj" property="orderZbj" jdbcType="VARCHAR"/>
+        <result column="order_zbjdqsj" property="orderZbjdqsj" jdbcType="DATE"/>
+        <result column="order_qdrq" property="orderQdrq" jdbcType="TIMESTAMP"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="BIT"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.mall.houlide.bean.OrderManagerWithBLOBs" extends="BaseResultMap">
+        <result column="ord_dept_name" property="ordDeptName" jdbcType="VARBINARY"/>
+        <result column="order_buy_money" property="orderBuyMoney" jdbcType="VARBINARY"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        <if test="fields == null">
+            id, order_name, order_buy_name, order_xs_state, order_cg_state, order_dept_name,
+            order_zbj, order_zbjdqsj, order_qdrq, remark, state
+        </if>
+        <if test="fields != null">
+            ${fields}
+        </if>
+    </sql>
+    <sql id="Blob_Column_List">
+        ord_dept_name, order_buy_money
+    </sql>
+    <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
+            parameterType="com.mall.houlide.bean.OrderManagerQuery">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from order_manager
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mall.houlide.bean.OrderManagerQuery">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from order_manager
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="startRow != null">
+            limit #{startRow} , #{pageSize}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+        select
+        id,order_name,order_buy_name,order_xs_state,order_cg_state,order_dept_name,order_zbj,order_zbjdqsj,order_qdrq,remark,state,ord_dept_name,order_buy_money
+        ,
+        <include refid="Blob_Column_List"/>
+        from order_manager
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from order_manager
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.mall.houlide.bean.OrderManagerQuery">
+        delete from order_manager
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.mall.houlide.bean.OrderManagerWithBLOBs">
+        insert into order_manager (id, order_name, order_buy_name,
+        order_xs_state, order_cg_state, order_dept_name,
+        order_zbj, order_zbjdqsj, order_qdrq,
+        remark, state, ord_dept_name,
+        order_buy_money)
+        values (#{id,jdbcType=VARCHAR}, #{orderName,jdbcType=VARCHAR}, #{orderBuyName,jdbcType=VARCHAR},
+        #{orderXsState,jdbcType=BIT}, #{orderCgState,jdbcType=BIT}, #{orderDeptName,jdbcType=VARCHAR},
+        #{orderZbj,jdbcType=VARCHAR}, #{orderZbjdqsj,jdbcType=DATE}, #{orderQdrq,jdbcType=TIMESTAMP},
+        #{remark,jdbcType=VARCHAR}, #{state,jdbcType=BIT}, #{ordDeptName,jdbcType=VARBINARY},
+        #{orderBuyMoney,jdbcType=VARBINARY})
+    </insert>
+    <insert id="insertSelective" parameterType="com.mall.houlide.bean.OrderManagerWithBLOBs">
+        insert into order_manager
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="orderName != null">
+                order_name,
+            </if>
+            <if test="orderBuyName != null">
+                order_buy_name,
+            </if>
+            <if test="orderXsState != null">
+                order_xs_state,
+            </if>
+            <if test="orderCgState != null">
+                order_cg_state,
+            </if>
+            <if test="orderDeptName != null">
+                order_dept_name,
+            </if>
+            <if test="orderZbj != null">
+                order_zbj,
+            </if>
+            <if test="orderZbjdqsj != null">
+                order_zbjdqsj,
+            </if>
+            <if test="orderQdrq != null">
+                order_qdrq,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="ordDeptName != null">
+                ord_dept_name,
+            </if>
+            <if test="orderBuyMoney != null">
+                order_buy_money,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="orderName != null">
+                #{orderName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderBuyName != null">
+                #{orderBuyName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderXsState != null">
+                #{orderXsState,jdbcType=BIT},
+            </if>
+            <if test="orderCgState != null">
+                #{orderCgState,jdbcType=BIT},
+            </if>
+            <if test="orderDeptName != null">
+                #{orderDeptName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderZbj != null">
+                #{orderZbj,jdbcType=VARCHAR},
+            </if>
+            <if test="orderZbjdqsj != null">
+                #{orderZbjdqsj,jdbcType=DATE},
+            </if>
+            <if test="orderQdrq != null">
+                #{orderQdrq,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=BIT},
+            </if>
+            <if test="ordDeptName != null">
+                #{ordDeptName,jdbcType=VARBINARY},
+            </if>
+            <if test="orderBuyMoney != null">
+                #{orderBuyMoney,jdbcType=VARBINARY},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.mall.houlide.bean.OrderManagerQuery" resultType="java.lang.Integer">
+        select count(*) from order_manager
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update order_manager
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderName != null">
+                order_name = #{record.orderName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderBuyName != null">
+                order_buy_name = #{record.orderBuyName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderXsState != null">
+                order_xs_state = #{record.orderXsState,jdbcType=BIT},
+            </if>
+            <if test="record.orderCgState != null">
+                order_cg_state = #{record.orderCgState,jdbcType=BIT},
+            </if>
+            <if test="record.orderDeptName != null">
+                order_dept_name = #{record.orderDeptName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderZbj != null">
+                order_zbj = #{record.orderZbj,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderZbjdqsj != null">
+                order_zbjdqsj = #{record.orderZbjdqsj,jdbcType=DATE},
+            </if>
+            <if test="record.orderQdrq != null">
+                order_qdrq = #{record.orderQdrq,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.remark != null">
+                remark = #{record.remark,jdbcType=VARCHAR},
+            </if>
+            <if test="record.state != null">
+                state = #{record.state,jdbcType=BIT},
+            </if>
+            <if test="record.ordDeptName != null">
+                ord_dept_name = #{record.ordDeptName,jdbcType=VARBINARY},
+            </if>
+            <if test="record.orderBuyMoney != null">
+                order_buy_money = #{record.orderBuyMoney,jdbcType=VARBINARY},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExampleWithBLOBs" parameterType="map">
+        update order_manager
+        set id = #{record.id,jdbcType=VARCHAR},
+        order_name = #{record.orderName,jdbcType=VARCHAR},
+        order_buy_name = #{record.orderBuyName,jdbcType=VARCHAR},
+        order_xs_state = #{record.orderXsState,jdbcType=BIT},
+        order_cg_state = #{record.orderCgState,jdbcType=BIT},
+        order_dept_name = #{record.orderDeptName,jdbcType=VARCHAR},
+        order_zbj = #{record.orderZbj,jdbcType=VARCHAR},
+        order_zbjdqsj = #{record.orderZbjdqsj,jdbcType=DATE},
+        order_qdrq = #{record.orderQdrq,jdbcType=TIMESTAMP},
+        remark = #{record.remark,jdbcType=VARCHAR},
+        state = #{record.state,jdbcType=BIT},
+        ord_dept_name = #{record.ordDeptName,jdbcType=VARBINARY},
+        order_buy_money = #{record.orderBuyMoney,jdbcType=VARBINARY}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update order_manager
+        set id = #{record.id,jdbcType=VARCHAR},
+        order_name = #{record.orderName,jdbcType=VARCHAR},
+        order_buy_name = #{record.orderBuyName,jdbcType=VARCHAR},
+        order_xs_state = #{record.orderXsState,jdbcType=BIT},
+        order_cg_state = #{record.orderCgState,jdbcType=BIT},
+        order_dept_name = #{record.orderDeptName,jdbcType=VARCHAR},
+        order_zbj = #{record.orderZbj,jdbcType=VARCHAR},
+        order_zbjdqsj = #{record.orderZbjdqsj,jdbcType=DATE},
+        order_qdrq = #{record.orderQdrq,jdbcType=TIMESTAMP},
+        remark = #{record.remark,jdbcType=VARCHAR},
+        state = #{record.state,jdbcType=BIT}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.mall.houlide.bean.OrderManagerWithBLOBs">
+        update order_manager
+        <set>
+            <if test="orderName != null">
+                order_name = #{orderName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderBuyName != null">
+                order_buy_name = #{orderBuyName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderXsState != null">
+                order_xs_state = #{orderXsState,jdbcType=BIT},
+            </if>
+            <if test="orderCgState != null">
+                order_cg_state = #{orderCgState,jdbcType=BIT},
+            </if>
+            <if test="orderDeptName != null">
+                order_dept_name = #{orderDeptName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderZbj != null">
+                order_zbj = #{orderZbj,jdbcType=VARCHAR},
+            </if>
+            <if test="orderZbjdqsj != null">
+                order_zbjdqsj = #{orderZbjdqsj,jdbcType=DATE},
+            </if>
+            <if test="orderQdrq != null">
+                order_qdrq = #{orderQdrq,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=BIT},
+            </if>
+            <if test="ordDeptName != null">
+                ord_dept_name = #{ordDeptName,jdbcType=VARBINARY},
+            </if>
+            <if test="orderBuyMoney != null">
+                order_buy_money = #{orderBuyMoney,jdbcType=VARBINARY},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mall.houlide.bean.OrderManagerWithBLOBs">
+        update order_manager
+        set order_name = #{orderName,jdbcType=VARCHAR},
+        order_buy_name = #{orderBuyName,jdbcType=VARCHAR},
+        order_xs_state = #{orderXsState,jdbcType=BIT},
+        order_cg_state = #{orderCgState,jdbcType=BIT},
+        order_dept_name = #{orderDeptName,jdbcType=VARCHAR},
+        order_zbj = #{orderZbj,jdbcType=VARCHAR},
+        order_zbjdqsj = #{orderZbjdqsj,jdbcType=DATE},
+        order_qdrq = #{orderQdrq,jdbcType=TIMESTAMP},
+        remark = #{remark,jdbcType=VARCHAR},
+        state = #{state,jdbcType=BIT},
+        ord_dept_name = #{ordDeptName,jdbcType=VARBINARY},
+        order_buy_money = #{orderBuyMoney,jdbcType=VARBINARY}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.mall.houlide.bean.OrderManager">
+        update order_manager
+        set order_name = #{orderName,jdbcType=VARCHAR},
+        order_buy_name = #{orderBuyName,jdbcType=VARCHAR},
+        order_xs_state = #{orderXsState,jdbcType=BIT},
+        order_cg_state = #{orderCgState,jdbcType=BIT},
+        order_dept_name = #{orderDeptName,jdbcType=VARCHAR},
+        order_zbj = #{orderZbj,jdbcType=VARCHAR},
+        order_zbjdqsj = #{orderZbjdqsj,jdbcType=DATE},
+        order_qdrq = #{orderQdrq,jdbcType=TIMESTAMP},
+        remark = #{remark,jdbcType=VARCHAR},
+        state = #{state,jdbcType=BIT}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>
