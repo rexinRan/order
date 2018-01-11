@@ -58,7 +58,7 @@
 
     <!-- BEGIN LOGIN FORM -->
 
-    <form class="form-vertical login-form" action="/toSystemIndex.do" method="post">
+    <form class="form-vertical login-form" action="/to_system_index.do" method="post">
 
         <h3 class="form-title" align="center">登 录 账 号</h3>
 

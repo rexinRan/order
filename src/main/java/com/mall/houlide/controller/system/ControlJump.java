@@ -51,7 +51,7 @@ public class ControlJump {
      */
     @RequestMapping(value = "to_forget_password.do")
     public String toForgetPassword() {
-        return "system/forgetPassword";
+        return "system/forget_password";
     }
 
     /**
@@ -60,9 +60,9 @@ public class ControlJump {
      *
      * @return
      */
-    @RequestMapping(value = "toSystemIndex.do")
-    public String toSystemIndex() {
-        return "system/systemIndex";
+    @RequestMapping(value = "to_system_index.do")
+    public String to_system_index() {
+        return "system/system_index";
     }
 
     /**
@@ -84,7 +84,7 @@ public class ControlJump {
     @RequestMapping(value = "to_extra_profile.do")
     public String to_extra_profile() {
 
-        return "extra/extraProfile";
+        return "extra/extra_profile";
     }
 
     /**
@@ -95,7 +95,7 @@ public class ControlJump {
     @RequestMapping(value = "to_extra_calendar.do")
     public String to_extra_calendar() {
 
-        return "extra/extraCalendar";
+        return "extra/extra_calendar";
     }
 
     /**
@@ -106,7 +106,7 @@ public class ControlJump {
     @RequestMapping(value = "to_extra_inbox.do")
     public String to_extra_inbox() {
 
-        return "extra/extraInbox";
+        return "extra/extra_inbox";
     }
 
     /**
@@ -117,8 +117,7 @@ public class ControlJump {
     @RequestMapping(value = "to_extra_lock.do")
     public String to_extra_lock() {
 
-        return "extra/extraLock";
+        return "extra/extra_ock";
     }
-
 
 }

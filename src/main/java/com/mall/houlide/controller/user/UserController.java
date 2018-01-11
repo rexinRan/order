@@ -48,7 +48,7 @@ public class UserController {
         map.put("createTime", user.getCreateTime());
 
 
-        return "system/registSucess";
+        return "system/regist_sucess";
     }
 
 

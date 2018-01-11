@@ -33,7 +33,7 @@
 
         </li>
 
-        <li class="start active "><a href="../system/systemIndex.jsp"> <i
+        <li class="start active "><a href="../system/system_index.jsp"> <i
                 class="icon-home"></i> <span class="title">首页</span> <span
                 class="selected"></span>
 
@@ -47,14 +47,18 @@
 
             <ul class="sub-menu">
 
-                <li><a href="layout_horizontal_sidebar_menu.html">
+                <li><a href="/to_new_order.do">
+
+                    新建合同</a></li>
+
+                <li><a href="/to_sale_order_detail.do">
 
                     销售合同</a></li>
 
-                <li><a href="layout_horizontal_menu1.html"> Horzontal
+                <li><a href="/to_buy_order_detail.do">
                     采购合同</a></li>
 
-                <li><a href="layout_horizontal_menu2.html"> Horzontal
+                <li><a href="/to_zhi_bao_jin.do">
                     质保金状态</a></li>
                 <%--
                                 <li><a href="layout_sidebar_closed.html"> Sidebar Closed
