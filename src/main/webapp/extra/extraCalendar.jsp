@@ -29,7 +29,7 @@
         <meta content="" name="description"/>
 
         <meta content="" name="author"/>
-        <link rel="shortcut icon" href="media/image/favicon.ico"/>
+        <link rel="shortcut icon" href="/media/image/favicon.ico"/>
     </head>
     <!-- BEGIN BODY -->
 
@@ -37,58 +37,14 @@
     <!-- BEGIN BODY -->
 <body class="page-header-fixed">
 <jsp:include page="../common/index-top.jsp"/>
-
+<jsp:include page="../common/index-left-menu.jsp"/>
 <!-- BEGIN PAGE CONTAINER-->
 <div class="container-fluid">
+
     <!-- BEGIN PAGE HEADER-->
     <div class="row-fluid">
-        <jsp:include page="../common/index-left-menu.jsp"/>
+
         <div class="span12">
-            <!-- BEGIN STYLE CUSTOMIZER -->
-            <div class="color-panel hidden-phone">
-                <div class="color-mode-icons icon-color"></div>
-                <div class="color-mode-icons icon-color-close"></div>
-                <div class="color-mode">
-                    <p>THEME COLOR</p>
-                    <ul class="inline">
-                        <li class="color-black current color-default" data-style="default"></li>
-                        <li class="color-blue" data-style="blue"></li>
-                        <li class="color-brown" data-style="brown"></li>
-                        <li class="color-purple" data-style="purple"></li>
-                        <li class="color-grey" data-style="grey"></li>
-                        <li class="color-white color-light" data-style="light"></li>
-                    </ul>
-                    <label>
-                        <span>Layout</span>
-                        <select class="layout-option m-wrap small">
-                            <option value="fluid" selected>Fluid</option>
-                            <option value="boxed">Boxed</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>Header</span>
-                        <select class="header-option m-wrap small">
-                            <option value="fixed" selected>Fixed</option>
-                            <option value="default">Default</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>Sidebar</span>
-                        <select class="sidebar-option m-wrap small">
-                            <option value="fixed">Fixed</option>
-                            <option value="default" selected>Default</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>Footer</span>
-                        <select class="footer-option m-wrap small">
-                            <option value="fixed">Fixed</option>
-                            <option value="default" selected>Default</option>
-                        </select>
-                    </label>
-                </div>
-            </div>
-            <!-- END BEGIN STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE TITLE & BREADCRUMB-->
             <h3 class="page-title">
                 Calendar
@@ -111,39 +67,74 @@
     </div>
     <!-- END PAGE HEADER-->
     <!-- BEGIN PAGE CONTENT-->
+
     <div class="row-fluid">
+
         <div class="portlet box blue calendar">
+
             <div class="portlet-title">
+
                 <div class="caption"><i class="icon-reorder"></i>Calendar</div>
+
             </div>
+
             <div class="portlet-body light-grey">
+
                 <div class="row-fluid">
+
                     <div class="span3 responsive" data-tablet="span12 fix-margin" data-desktop="span8">
+
                         <!-- BEGIN DRAGGABLE EVENTS PORTLET-->
+
                         <h3 class="event-form-title">Draggable Events</h3>
+
                         <div id="external-events">
+
                             <form class="inline-form">
+
                                 <input type="text" value="" class="m-wrap span12" placeholder="Event Title..."
                                        id="event_title"/><br/>
+
                                 <a href="javascript:;" id="event_add" class="btn green">Add Event</a>
+
                             </form>
+
                             <hr/>
+
                             <div id="event_box">
+
                             </div>
+
                             <label for="drop-remove">
+
                                 <input type="checkbox" id="drop-remove"/>remove after drop
+
                             </label>
+
                             <hr class="visible-phone"/>
+
                         </div>
+
                         <!-- END DRAGGABLE EVENTS PORTLET-->
+
                     </div>
+
                     <div class="span9">
+
                         <div id="calendar" class="has-toolbar"></div>
+
                     </div>
+
                 </div>
+
                 <!-- END CALENDAR PORTLET-->
             </div>
+
+
+            <!-- END PAGE CONTENT-->
+
         </div>
+
     </div>
     <!-- END PAGE CONTENT-->
 </div>
@@ -152,11 +143,31 @@
 <!-- END PAGE -->
 </div>
 <!-- END CONTAINER -->
-<jsp:include page="../common/footerIndex.jsp"/>
+<!-- BEGIN FOOTER -->
+
+<div class="footer">
+
+    <jsp:include page="../common/footerIndex.jsp"/>
+
+    <div class="footer-tools">
+
+			<span class="go-top">
+
+			<i class="icon-angle-up"></i>
+
+			</span>
+
+    </div>
+
+</div>
+
+<!-- END FOOTER -->
+
 
 </body>
 <!-- END FOOTER -->
 <!-- END JAVASCRIPTS -->
+
 
 <script type="text/javascript">  var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-37564768-1']);
@@ -171,5 +182,6 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(ga, s);
 })();</script>
+<
 </div>
 
