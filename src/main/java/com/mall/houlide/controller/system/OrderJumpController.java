@@ -14,7 +14,16 @@ public class OrderJumpController {
 
     private static final Logger logger = Logger.getLogger(UserController.class);
 
+    /**
+     * 跳转到销售合同总页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "to_file_upload.do")
+    public String to_file_upload() {
 
+        return "orderDetail/file_upload";
+    }
     /**
      * 跳转到销售合同总页面
      *

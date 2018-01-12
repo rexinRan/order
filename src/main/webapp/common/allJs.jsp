@@ -22,7 +22,7 @@
 <script src="<%=basePath%>/media/js/bootstrap.min.js"
         type="text/javascript"></script>
 
-<!--[if lt IE 9]>
+<!--[if IE 9]>
 
 <script src="<%=basePath%>/media/js/excanvas.min.js"></script>
 
@@ -103,5 +103,40 @@
 <script src="<%=basePath%>/media/js/lock.js" type="text/javascript"></script>
 <script src="<%=basePath%>/media/js/inbox.js" type="text/javascript"></script>
 <script src="<%=basePath%>/media/js/calendar.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="<%=basePath%>/media/js/form-wizard.js"></script>
+<script type="text/javascript" src="<%=basePath%>/media/js/jquery.bootstrap.wizard.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>/media/js/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>/media/js/select2.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>/media/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>/media/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="<%=basePath%>/media/js/DT_bootstrap.js"></script>
+<script type="text/javascript" src="<%=basePath%>/media/js/table-advanced.js"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="<%=basePath%>/media/js/jquery.fancybox.pack.js"></script>
+<!-- BEGIN:File Upload Plugin JS files-->
+<script src="<%=basePath%>/media/js/jquery.ui.widget.js"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="<%=basePath%>/media/js/tmpl.min.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="<%=basePath%>/media/js/load-image.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="<%=basePath%>/media/js/canvas-to-blob.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="<%=basePath%>/media/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="<%=basePath%>/media/js/jquery.fileupload.js"></script>
+<!-- The File Upload file processing plugin -->
+<script src="<%=basePath%>/media/js/jquery.fileupload-fp.js"></script>
+<!-- The File Upload user interface plugin -->
+<script src="<%=basePath%>/media/js/jquery.fileupload-ui.js"></script>
+<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
+<!--[if gte IE 8]><script src="../media/js/jquery.xdr-transport.js"></script><![endif]-->
+<!-- END:File Upload Plugin JS files-->
+<!-- END PAGE LEVEL PLUGINS -->
+<script src="<%=basePath%>/media/js/app.js"></script>
+<script src="<%=basePath%>/media/js/form-fileupload.js"></script>
+
 
 <!-- END PAGE LEVEL SCRIPTS -->
