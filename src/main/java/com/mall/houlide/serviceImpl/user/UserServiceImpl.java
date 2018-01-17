@@ -71,4 +71,9 @@ public class UserServiceImpl implements UserService {
     public int updateByExample(User record, UserQuery example) {
         return userDao.updateByExample(record, example);
     }
+
+    @Override
+    public User selectByUserIdorUserPwd(User user) {
+        return userDao.selectByUserIdorUserPwd(user);
+    }
 }

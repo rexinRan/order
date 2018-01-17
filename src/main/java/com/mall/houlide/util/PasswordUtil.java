@@ -183,13 +183,15 @@ public class PasswordUtil {
 
         try {
             byte[] salt = PasswordUtil.getStaticSalt();
+            //加密
             String ciphertext = PasswordUtil.encrypt(str, password, salt);
-            com.mall.houlide.util.LogUtil.info("密文:" + ciphertext);
+            com.mall.houlide.util.LogUtil.info("密文ciphertext:" + ciphertext);
             String plaintext = PasswordUtil.decrypt(ciphertext, password, salt);
-            com.mall.houlide.util.LogUtil.info("明文:" + plaintext);
+            com.mall.houlide.util.LogUtil.info("明文plaintext:" + plaintext);
 
+            //解密
             String result = PasswordUtil.decrypt("ea3d519525358e00", "root", salt);
-            com.mall.houlide.util.LogUtil.info("明文:" + result);
+            com.mall.houlide.util.LogUtil.info("明文result:" + result);
         } catch (Exception e) {
             e.printStackTrace();
         }

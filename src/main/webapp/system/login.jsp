@@ -58,7 +58,7 @@
 
     <!-- BEGIN LOGIN FORM -->
 
-    <form class="form-vertical login-form" action="/to_system_index.do" method="post">
+    <form class="form-vertical login-form" action="/login_index.do" method="post">
 
         <h3 class="form-title" align="center">登 录 账 号</h3>
 
@@ -82,7 +82,7 @@
 
                     <i class="icon-user"></i>
 
-                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="username"/>
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="userName"/>
 
                 </div>
 

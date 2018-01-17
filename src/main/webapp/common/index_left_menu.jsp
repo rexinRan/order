@@ -86,7 +86,7 @@
 
                 <li><a href="ui_buttons.html"> 厂家</a></li>
 
-                <li><a href=""> 上传发票</a></li>
+                <li><a href="/to_file_upload.do"> 上传发票</a></li>
 
                 <%--<li><a href="ui_tabs_accordions.html"> Tabs & Accordions</a>
 

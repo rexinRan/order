@@ -25,4 +25,6 @@ public interface UserDao {
 
     User selectByUserName(String username);
 
+    User selectByUserIdorUserPwd(User user);
+
 }

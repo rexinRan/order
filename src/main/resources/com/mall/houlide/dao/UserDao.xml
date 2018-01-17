@@ -20,20 +20,26 @@
         <result column="is_del" property="isDel" jdbcType="BIT"/>
     </resultMap>
 
-    <select id="selectByUserId" parameterType="com.mall.houlide.bean.User" resultMap="BaseResultMap">
+
+    <select id="selectByUserIdorUserPwd" resultMap="BaseResultMap">
         SELECT
         User_Id, User_Name, User_Pwd, Bel_Group, Div_Type, User_Auth, Auth_Type, User_Status,
         Create_User, Create_Date, Create_Time, Appr_User, Appr_Date, Appr_Time, remark, is_del
-        FROM "user"
+        FROM User
+        WHERE User_Name = #{userName}
+        <if test="userName != null and userPwd != ''">
+            and USER.User_Name = #{userName}
+        </if>
 
-        <where>
-            <if test="username != null">
-                user_name LIKE "%"#{user_name}"%"
+
+        <!--<where>
+            <if test="userName != null">
+                user_Name LIKE "%"#{userName}"%"
             </if>
             <if test="isDel != null">
                 AND is_del = #{isDel}
             </if>
-        </where>
+        </where>-->
 
     </select>
 

@@ -14,7 +14,7 @@
 
     <meta charset="utf-8"/>
 
-    <title>忘记密码</title>
+    <title>注册成功</title>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 

@@ -54,16 +54,7 @@ public class ControlJump {
         return "system/forget_password";
     }
 
-    /**
-     * 跳转到主页
-     * 临时用    登陆的时候可以删除这段
-     *
-     * @return
-     */
-    @RequestMapping(value = "to_system_index.do")
-    public String to_system_index() {
-        return "system/system_index";
-    }
+
 
     /**
      * 跳转到系统监督页面
@@ -117,7 +108,16 @@ public class ControlJump {
     @RequestMapping(value = "to_extra_lock.do")
     public String to_extra_lock() {
 
-        return "extra/extra_ock";
+        return "extra/extra_lock";
     }
+    /**
+     * 跳转到锁屏页面
+     *
+     * @return
+     */
+  /*  @RequestMapping(value = "to_file_upload.do")
+    public String to_extra_lock() {
 
+        return "orderDetail/file_upload";
+    }*/
 }

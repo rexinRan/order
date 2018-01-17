@@ -29,5 +29,7 @@ public interface UserService {
 
     int updateByExample(@Param("record") User record, @Param("example") UserQuery example);
 
+    User selectByUserIdorUserPwd(User user) throws Exception;
+
 
 }

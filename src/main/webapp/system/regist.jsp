@@ -64,7 +64,7 @@
 
                     <i class="icon-user"></i>
 
-                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="username"/>
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="userName"/>
 
                 </div>
 
@@ -83,7 +83,7 @@
                     <i class="icon-lock"></i>
 
                     <input class="m-wrap placeholder-no-fix" type="password" id="register_password" placeholder="密码"
-                           name="password"/>
+                           name="userPwd"/>
 
                 </div>
 
@@ -190,7 +190,7 @@
 <!-- END JAVASCRIPTS -->
 
 
-<script type="text/javascript">  var _gaq = _gaq || [];
+<%--<script type="text/javascript">  var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-37564768-1']);
 _gaq.push(['_setDomainName', 'keenthemes.com']);
 _gaq.push(['_setAllowLinker', true]);
@@ -202,7 +202,7 @@ _gaq.push(['_trackPageview']);
     ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(ga, s);
-})();</script>
+})();</script>--%>
 </body>
 
 <!-- END BODY -->
