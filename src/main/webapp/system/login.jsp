@@ -31,6 +31,103 @@
     <meta content="" name="author"/>
     <jsp:include page="../common/allJs.jsp"/>
     <jsp:include page="../common/allCss.jsp"/>
+    <script type="text/javascript">
+        $(function(){
+            optErrMsg();
+        });
+        $("#errMsgContiner").hide();
+        function optErrMsg(){
+            $("#showErrMsg").html('');
+            $("#errMsgContiner").hide();
+        }
+        //输入验证码，回车登录
+        $(document).keydown(function(e){
+            if(e.keyCode == 13) {
+
+                setTimeout("$('#login_index').click()","100");
+
+            }
+        });
+        //验证用户信息
+        function checkUser(){
+            if(!validForm()){
+                return false;
+            }
+            newLogin();
+        }
+        //表单验证
+        function validForm(){
+            if($.trim($("#userName").val()).length==0){
+                showErrorMsg("请输入用户名");
+                return false;
+            }
+
+            if($.trim($("#userPwd").val()).length==0){
+                showErrorMsg("请输入密码");
+                return false;
+            }
+
+            if($.trim($("#randCode").val()).length==0){
+                showErrorMsg("请输入验证码");
+                return false;
+            }
+            return true;
+        }
+        //登录提示消息显示
+        function showErrorMsg(msg){
+            $("#errMsgContiner").show();
+            $("#showErrMsg").html(msg);
+            window.setTimeout(optErrMsg,3000);
+        }
+    </script>
+    <script type="text/javascript">
+        $('.login-form').validate({
+            errorElement: 'label', //default input error message container
+            errorClass: 'help-inline', // default input error message class
+            focusInvalid: false, // do not focus the last invalid input
+            rules: {
+                userName: {
+                    required: true
+                },
+                userPwd: {
+                    required: true
+                },
+                remember: {
+                    required: false
+                }
+            },
+
+            messages: {
+                userName: {
+                    required: "请填写用户名."
+                },
+                userPwd: {
+                    required: "请填写密码."
+                }
+            },
+
+            invalidHandler: function (event, validator) { //display error alert on form submit
+                $('.alert-error', $('.login-form')).show();
+            },
+
+            highlight: function (element) { // hightlight error inputs
+                $(element)
+                    .closest('.control-group').addClass('error'); // set error class to the control group
+            },
+
+            success: function (label) {
+                label.closest('.control-group').removeClass('error');
+                label.remove();
+            },
+
+            errorPlacement: function (error, element) {
+                error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
+            },
+
+
+        });
+
+    </script>
 
     <link rel="shortcut icon" href="../media/image/favicon.ico"/>
 
@@ -66,7 +163,7 @@
 
             <button class="close" data-dismiss="alert"></button>
 
-            <span>输入你的用户名和密码</span>
+            <span id="showErrMsg">输入你的用户名和密码</span>
 
         </div>
 
@@ -107,7 +204,19 @@
             </div>
 
         </div>
+        <div class="control-group">
+            <label class="control-label visible-ie8 visible-ie9">验证码</label>
+            <div class="controls">
+                <div class="input-icon left">
 
+                   <%-- <i class="icon-"></i>--%>
+                    <%--<input type="text" style="width:150px" name="randCode" class="form-control" placeholder="请输入验证码"  id="randCode"/>--%>
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="验证码" style="width:150px" name="randCode" id="randCode"/>
+                       <span class="input-group-addon" style="padding: 0px;"><img id="randCodeImage" src="randCodeImage"  /></span>
+                </div>
+            </div>
+
+        </div>
         <div class="form-actions">
 
             <label class="checkbox">
@@ -116,7 +225,7 @@
 
             </label>
 
-            <button type="submit" class="btn green pull-right">
+            <button type="submit" class="btn green pull-right" id="login_index" onclick="validForm()">
 
                 登陆 <i class="m-icon-swapright m-icon-white"></i>
 

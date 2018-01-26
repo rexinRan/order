@@ -9,7 +9,7 @@ var Login = function () {
                 errorClass: 'help-inline', // default input error message class
                 focusInvalid: false, // do not focus the last invalid input
                 rules: {
-                    username: {
+                    userName: {
                         required: true
                     },
                     password: {
@@ -21,11 +21,11 @@ var Login = function () {
                 },
 
                 messages: {
-                    username: {
-                        required: "Username is required."
+                    userName: {
+                        required: "请填写用户名."
                     },
                     password: {
-                        required: "Password is required."
+                        required: "请填写密码."
                     }
                 },
 
@@ -73,7 +73,7 @@ var Login = function () {
 
                 messages: {
                     email: {
-                        required: "Email is required."
+                        required: "请输入邮箱"
                     }
                 },
 
@@ -143,7 +143,7 @@ var Login = function () {
 
                 messages: { // custom messages for radio buttons and checkboxes
                     tnc: {
-                        required: "Please accept TNC first."
+                        required: "请先同意条件"
                     }
                 },
 

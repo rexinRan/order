@@ -23,20 +23,20 @@ public class SaleOrderQuery {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -72,38 +72,38 @@ public class SaleOrderQuery {
         distinct = false;
     }
 
+    public void setPageNo(Integer pageNo) {
+        this.pageNo=pageNo;
+        this.startRow = (pageNo-1)*this.pageSize;
+    }
+
     public Integer getPageNo() {
         return pageNo;
     }
 
-    public void setPageNo(Integer pageNo) {
-        this.pageNo = pageNo;
-        this.startRow = (pageNo - 1) * this.pageSize;
+    public void setStartRow(Integer startRow) {
+        this.startRow=startRow;
     }
 
     public Integer getStartRow() {
         return startRow;
     }
 
-    public void setStartRow(Integer startRow) {
-        this.startRow = startRow;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize=pageSize;
+        this.startRow = (pageNo-1)*this.pageSize;
     }
 
     public Integer getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-        this.startRow = (pageNo - 1) * this.pageSize;
+    public void setFields(String fields) {
+        this.fields=fields;
     }
 
     public String getFields() {
         return fields;
-    }
-
-    public void setFields(String fields) {
-        this.fields = fields;
     }
 
     protected abstract static class GeneratedCriteria {
@@ -567,6 +567,76 @@ public class SaleOrderQuery {
             return (Criteria) this;
         }
 
+        public Criteria andSaleOrderStateIsNull() {
+            addCriterion("sale_order_state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateIsNotNull() {
+            addCriterion("sale_order_state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateEqualTo(String value) {
+            addCriterion("sale_order_state =", value, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateNotEqualTo(String value) {
+            addCriterion("sale_order_state <>", value, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateGreaterThan(String value) {
+            addCriterion("sale_order_state >", value, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateGreaterThanOrEqualTo(String value) {
+            addCriterion("sale_order_state >=", value, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateLessThan(String value) {
+            addCriterion("sale_order_state <", value, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateLessThanOrEqualTo(String value) {
+            addCriterion("sale_order_state <=", value, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateLike(String value) {
+            addCriterion("sale_order_state like", value, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateNotLike(String value) {
+            addCriterion("sale_order_state not like", value, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateIn(List<String> values) {
+            addCriterion("sale_order_state in", values, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateNotIn(List<String> values) {
+            addCriterion("sale_order_state not in", values, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateBetween(String value1, String value2) {
+            addCriterion("sale_order_state between", value1, value2, "saleOrderState");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaleOrderStateNotBetween(String value1, String value2) {
+            addCriterion("sale_order_state not between", value1, value2, "saleOrderState");
+            return (Criteria) this;
+        }
+
         public Criteria andIsDelIsNull() {
             addCriterion("is_del is null");
             return (Criteria) this;
@@ -652,6 +722,38 @@ public class SaleOrderQuery {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -686,38 +788,6 @@ public class SaleOrderQuery {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

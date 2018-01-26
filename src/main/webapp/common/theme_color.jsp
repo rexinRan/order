@@ -62,14 +62,14 @@
         <ul class="breadcrumb">
             <li>
                 <i class="icon-home"></i>
-                <a href="index.html">Home</a>
+                <a href="../system/system_index.jsp">首页</a>
                 <i class="icon-angle-right"></i>
             </li>
             <li>
-                <a href="#">Data Tables</a>
+                <a href="javascript:;">合同列表</a>
                 <i class="icon-angle-right"></i>
             </li>
-            <li><a href="#">Advanced Tables</a></li>
+            <li><a href="/to_sale_order_detail.do">销售合同</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>

@@ -175,16 +175,16 @@ public class PasswordUtil {
             }
         }
         System.out.print(-1 % 2 == 0);
-        String str = "root";
+        String username = "root";
         String password = "root";
 
-        com.mall.houlide.util.LogUtil.info("明文:" + str);
+        com.mall.houlide.util.LogUtil.info("明文:" + username);
         com.mall.houlide.util.LogUtil.info("密码:" + password);
 
         try {
             byte[] salt = PasswordUtil.getStaticSalt();
             //加密
-            String ciphertext = PasswordUtil.encrypt(str, password, salt);
+            String ciphertext = PasswordUtil.encrypt(username, password, salt);
             com.mall.houlide.util.LogUtil.info("密文ciphertext:" + ciphertext);
             String plaintext = PasswordUtil.decrypt(ciphertext, password, salt);
             com.mall.houlide.util.LogUtil.info("明文plaintext:" + plaintext);

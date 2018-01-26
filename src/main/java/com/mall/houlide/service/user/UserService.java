@@ -11,9 +11,11 @@ import java.util.List;
  */
 public interface UserService {
 
-    User selectByUserName(String username);
+    User selectByUserId(String userId);
 
-    List<User> selectByUserId(User record);
+    User selectByUserName(@Param("username") String username);
+
+    List<User> selectByUserIdz(User record);
 
     int countByExample(UserQuery example);
 

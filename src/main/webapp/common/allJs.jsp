@@ -137,9 +137,8 @@
 <!-- END PAGE LEVEL PLUGINS -->
 <script src="<%=basePath%>/media/js/app.js"></script>
 <%--<script src="<%=basePath%>/media/js/form-fileupload.js">--%>
-
-</script>
 <script src="<%=basePath%>/media/js/jquery-form.js"></script>
+<script src="<%=basePath%>/media/js/login.js"></script>
 
 
 <!-- END PAGE LEVEL SCRIPTS -->

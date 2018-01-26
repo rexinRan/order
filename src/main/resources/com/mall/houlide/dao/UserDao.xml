@@ -26,11 +26,7 @@
         User_Id, User_Name, User_Pwd, Bel_Group, Div_Type, User_Auth, Auth_Type, User_Status,
         Create_User, Create_Date, Create_Time, Appr_User, Appr_Date, Appr_Time, remark, is_del
         FROM User
-        WHERE User_Name = #{userName}
-        <if test="userName != null and userPwd != ''">
-            and USER.User_Name = #{userName}
-        </if>
-
+        WHERE user_Name = #{userName} AND User_Pwd = #{UserPwd}
 
         <!--<where>
             <if test="userName != null">
@@ -42,6 +38,25 @@
         </where>-->
 
     </select>
+    <select id="selectByUserName"  resultMap="BaseResultMap">
+        SELECT
+        User_Id, User_Name, User_Pwd, Bel_Group, Div_Type, User_Auth, Auth_Type, User_Status,
+        Create_User, Create_Date, Create_Time, Appr_User, Appr_Date, Appr_Time, remark, is_del
+        FROM User
+        WHERE user_Name = #{userName}
+
+
+    </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT
+        User_Id, User_Name, User_Pwd, Bel_Group, Div_Type, User_Auth, Auth_Type, User_Status,
+        Create_User, Create_Date, Create_Time, Appr_User, Appr_Date, Appr_Time, remark, is_del
+        FROM User
+        WHERE user_Id = #{userId}
+
+
+    </select>
+
 
     <sql id="Example_Where_Clause">
         <where>

@@ -52,6 +52,9 @@ public class Employee implements Serializable {
     /**
      * Email
      */
+
+    private Dept dept;
+
     private String email;
 
     public Integer getEmployeeId() {

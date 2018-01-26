@@ -4,39 +4,58 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class SaleOrder implements Serializable {
+
     private static final long serialVersionUID = 1L;
     /**
      * 合同编号 , 主键
      */
     private Integer saleorderId;
+
     /**
      * 合同编号 , 主键
      */
     private Date writedate;
+
     /**
      * 合同生效日期
      */
     private Date insuredate;
+
     /**
      * 合同到期日期
      */
     private Date enddate;
+
     /**
      * 签订部门, 外键 ( 参照 DEPT 表 )
      */
     private Integer deptId;
+
     /**
      * 客户编号, 外键 ( 参照 CUSTOMER 表 )
      */
     private Integer customerId;
+
     /**
      * 合同主要负责人, 外键 ( 参照 EMPLOYEE 表)
      */
     private Integer employeeId;
+
+    /**
+     * 发货状态
+     */
+    private String saleOrderState;
+
     /**
      * 是否已删除:1:未,0:删除了
      */
     private Boolean isDel;
+
+    private Employee employee;
+
+    private Dept dept;
+
+    private Customer customer;
 
     public Integer getSaleorderId() {
         return saleorderId;
@@ -94,6 +113,14 @@ public class SaleOrder implements Serializable {
         this.employeeId = employeeId;
     }
 
+    public String getSaleOrderState() {
+        return saleOrderState;
+    }
+
+    public void setSaleOrderState(String saleOrderState) {
+        this.saleOrderState = saleOrderState == null ? null : saleOrderState.trim();
+    }
+
     public Boolean getIsDel() {
         return isDel;
     }
@@ -115,6 +142,7 @@ public class SaleOrder implements Serializable {
         sb.append(", deptId=").append(deptId);
         sb.append(", customerId=").append(customerId);
         sb.append(", employeeId=").append(employeeId);
+        sb.append(", saleOrderState=").append(saleOrderState);
         sb.append(", isDel=").append(isDel);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

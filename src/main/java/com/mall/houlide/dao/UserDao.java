@@ -21,10 +21,13 @@ public interface UserDao {
 
     int updateByExample(@Param("record") User record, @Param("example") UserQuery example);
 
-    List<User> selectByUserId(User user);
+    List<User> selectByUserIdz(User user);
+
+    User selectByUserId(String userId);
 
     User selectByUserName(String username);
 
     User selectByUserIdorUserPwd(User user);
+
 
 }

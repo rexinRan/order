@@ -1,11 +1,20 @@
-package com.mall.houlide.dao;
+package com.mall.houlide.service.sale;
 
 import com.mall.houlide.bean.SaleOrder;
 import com.mall.houlide.bean.SaleOrderQuery;
-import java.util.List;
+import com.mall.houlide.bean.SaleQuery;
 import org.apache.ibatis.annotations.Param;
 
-public interface SaleOrderDao {
+import java.util.List;
+
+/**
+ * Created by rexin on 2018/1/24.
+ */
+public interface SaleOrderService {
+
+    //查询所有销售合同的数量
+    List<SaleOrder> selectAllSaleOrder();
+
     int countByExample(SaleOrderQuery example);
 
     int deleteByExample(SaleOrderQuery example);
@@ -27,4 +36,5 @@ public interface SaleOrderDao {
     int updateByPrimaryKeySelective(SaleOrder record);
 
     int updateByPrimaryKey(SaleOrder record);
+
 }

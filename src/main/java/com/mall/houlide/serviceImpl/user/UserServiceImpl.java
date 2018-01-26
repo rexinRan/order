@@ -26,15 +26,23 @@ public class UserServiceImpl implements UserService {
         UserQuery userQuery = new UserQuery();
         userQuery.createCriteria().andUserNameEqualTo(username);
         List<User> users = userDao.selectByExample(userQuery);
+
         if (null != users && users.size() > 0) {
-            return users.get(1);
+            return users.get(0);
         }
-        return null;
+        return userDao.selectByUserName(username);
+    }
+
+
+    @Override
+    public User selectByUserId(String userId) {
+        userDao.selectByUserId(userId);
+        return userDao.selectByUserId(userId);
     }
 
     @Override
-    public List<User> selectByUserId(User record) {
-        return userDao.selectByUserId(record);
+    public List<User> selectByUserIdz(User record) {
+        return null;
     }
 
     @Override

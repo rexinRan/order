@@ -9,6 +9,9 @@
     <typeAliases>
         <package name="com.mall.houlide.bean"/>
     </typeAliases>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
 
 
 </configuration>

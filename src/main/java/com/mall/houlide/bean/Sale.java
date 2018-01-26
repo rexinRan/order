@@ -4,31 +4,42 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Sale implements Serializable {
-    private static final long serialVersionUID = 1L;
     /**
      * 销售 编号
      */
     private Integer saleId;
+
     /**
      * 销售 日期
      */
     private Date saledate;
+
     /**
      * 销售部门, 外键 ( 参照 DEPT 表 )
      */
     private Integer deptId;
+
     /**
      * 售货人,   外键 ( 参照 EMPLOYEE 表)
      */
     private Integer employeeId;
+
     /**
      * 备注
      */
     private String remark;
+
+    /**
+     * 发货状态
+     */
+    private String saleState;
+
     /**
      * 是否已删除:1:未,0:删除了
      */
     private Boolean isDel;
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getSaleId() {
         return saleId;
@@ -70,6 +81,14 @@ public class Sale implements Serializable {
         this.remark = remark == null ? null : remark.trim();
     }
 
+    public String getSaleState() {
+        return saleState;
+    }
+
+    public void setSaleState(String saleState) {
+        this.saleState = saleState == null ? null : saleState.trim();
+    }
+
     public Boolean getIsDel() {
         return isDel;
     }
@@ -89,6 +108,7 @@ public class Sale implements Serializable {
         sb.append(", deptId=").append(deptId);
         sb.append(", employeeId=").append(employeeId);
         sb.append(", remark=").append(remark);
+        sb.append(", saleState=").append(saleState);
         sb.append(", isDel=").append(isDel);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

@@ -17,7 +17,7 @@ public class User implements Serializable {
      */
     private String userPwd;
     /**
-     * 分组
+     * 确认密码
      */
     private String belGroup;
     /**

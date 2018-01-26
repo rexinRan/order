@@ -26,6 +26,25 @@ public class Buy implements Serializable {
      */
     private Boolean isDel;
 
+    private Employee employee;
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    private Dept dept;
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
+
     public Integer getBuyId() {
         return buyId;
     }
