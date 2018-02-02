@@ -27,6 +27,7 @@ public class Buy implements Serializable {
     private Boolean isDel;
 
     private Employee employee;
+    private Dept dept;
 
     public Employee getEmployee() {
         return employee;
@@ -35,7 +36,6 @@ public class Buy implements Serializable {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
-    private Dept dept;
 
     public Dept getDept() {
         return dept;

@@ -61,12 +61,12 @@
       rel="stylesheet" type="text/css" media="screen"/>
 
 
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/media/css/select2_metro.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/media/css/chosen.css" />
-<link rel="stylesheet" href="<%=basePath%>/media/css/DT_bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/media/css/select2_metro.css"/>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/media/css/chosen.css"/>
+<link rel="stylesheet" href="<%=basePath%>/media/css/DT_bootstrap.css"/>
 <!-- BEGIN PAGE LEVEL STYLES -->
-<link href="<%=basePath%>/media/css/jquery.fancybox.css" rel="stylesheet" />
-<link href="<%=basePath%>/media/css/jquery.fileupload-ui.css" rel="stylesheet" />
+<link href="<%=basePath%>/media/css/jquery.fancybox.css" rel="stylesheet"/>
+<link href="<%=basePath%>/media/css/jquery.fileupload-ui.css" rel="stylesheet"/>
 <!-- END PAGE LEVEL STYLES -->
 
 

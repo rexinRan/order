@@ -2,7 +2,6 @@ package com.mall.houlide.service.sale;
 
 import com.mall.houlide.bean.SaleOrder;
 import com.mall.houlide.bean.SaleOrderQuery;
-import com.mall.houlide.bean.SaleQuery;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

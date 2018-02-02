@@ -32,52 +32,52 @@
     <jsp:include page="../common/allJs.jsp"/>
     <jsp:include page="../common/allCss.jsp"/>
     <script type="text/javascript">
-        $(function(){
+        $(function () {
             optErrMsg();
         });
         $("#errMsgContiner").hide();
-        function optErrMsg(){
+        function optErrMsg() {
             $("#showErrMsg").html('');
             $("#errMsgContiner").hide();
         }
         //输入验证码，回车登录
-        $(document).keydown(function(e){
-            if(e.keyCode == 13) {
+        $(document).keydown(function (e) {
+            if (e.keyCode == 13) {
 
-                setTimeout("$('#login_index').click()","100");
+                setTimeout("$('#login_index').click()", "100");
 
             }
         });
         //验证用户信息
-        function checkUser(){
-            if(!validForm()){
+        function checkUser() {
+            if (!validForm()) {
                 return false;
             }
             newLogin();
         }
         //表单验证
-        function validForm(){
-            if($.trim($("#userName").val()).length==0){
+        function validForm() {
+            if ($.trim($("#userName").val()).length == 0) {
                 showErrorMsg("请输入用户名");
                 return false;
             }
 
-            if($.trim($("#userPwd").val()).length==0){
+            if ($.trim($("#userPwd").val()).length == 0) {
                 showErrorMsg("请输入密码");
                 return false;
             }
 
-            if($.trim($("#randCode").val()).length==0){
+            if ($.trim($("#randCode").val()).length == 0) {
                 showErrorMsg("请输入验证码");
                 return false;
             }
             return true;
         }
         //登录提示消息显示
-        function showErrorMsg(msg){
+        function showErrorMsg(msg) {
             $("#errMsgContiner").show();
             $("#showErrMsg").html(msg);
-            window.setTimeout(optErrMsg,3000);
+            window.setTimeout(optErrMsg, 3000);
         }
     </script>
     <script type="text/javascript">
@@ -209,10 +209,11 @@
             <div class="controls">
                 <div class="input-icon left">
 
-                   <%-- <i class="icon-"></i>--%>
+                    <%-- <i class="icon-"></i>--%>
                     <%--<input type="text" style="width:150px" name="randCode" class="form-control" placeholder="请输入验证码"  id="randCode"/>--%>
-                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="验证码" style="width:150px" name="randCode" id="randCode"/>
-                       <span class="input-group-addon" style="padding: 0px;"><img id="randCodeImage" src="randCodeImage"  /></span>
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="验证码" style="width:150px"
+                           name="randCode" id="randCode"/>
+                    <span class="input-group-addon" style="padding: 0px;"><img id="randCodeImage" src="randCodeImage"/></span>
                 </div>
             </div>
 

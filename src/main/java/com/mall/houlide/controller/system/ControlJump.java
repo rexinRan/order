@@ -1,9 +1,16 @@
 package com.mall.houlide.controller.system;
 
+import com.mall.houlide.bean.User;
+import com.mall.houlide.bean.UserQuery;
 import com.mall.houlide.controller.user.UserController;
+import com.mall.houlide.service.user.UserService;
+import com.mall.houlide.util.LogUtil;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * 主要控制页面的跳转
@@ -14,14 +21,19 @@ public class ControlJump {
 
     private static final Logger logger = Logger.getLogger(UserController.class);
 
+    private UserService userService;
+
+
     /**
      * 主页调到登陆页面
      *
      * @return
      */
     @RequestMapping(value = "indexToLogin.do")
-    public String indexToLogin() {
-        return "system/login";
+    public String indexToLogin(Model model) {
+
+            return "system/login";
+
     }
 
     /**
@@ -53,7 +65,6 @@ public class ControlJump {
     public String toForgetPassword() {
         return "system/forget_password";
     }
-
 
 
     /**

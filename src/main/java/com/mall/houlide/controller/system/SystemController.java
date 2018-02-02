@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by rexin on 2018/1/5.
@@ -42,31 +40,28 @@ public class SystemController {
     @RequestMapping(value = "login_index.do")
     public String login_index(@RequestParam(value = "userName") String userName, @RequestParam(value = "userPwd") String userPwd, HttpSession session, Model model) throws Exception {
 
-        /*User user1 = userService.selectByUserIdorUserPwd(user);*/
+
         User user1 = userService.selectByUserName(userName);
-       /* byte[] salt = PasswordUtil.getStaticSalt();
-        String ciphertext = PasswordUtil.encrypt(userName, userPwd, salt);
 
-        logger.info("结果"+userPwd.equals(PasswordUtil.decrypt(userName, userPwd, salt)));
+
+        List<User> userList = new ArrayList<User>();
+        userList.add(user1);
         if (null != user1) {
-            try {
-                if (userPwd.equals(PasswordUtil.decrypt(ciphertext, userPwd, salt))) {
 
-                }
+            LogUtil.info("1-->" + user1.getUserId());
+            LogUtil.info("2-->" + user1.getUserName());
+            LogUtil.info("3-->" + user1.getUserPwd());
+            LogUtil.info("4-->" + user1.getUserAuth());
+            LogUtil.info("5-->" + user1.getUserStatus());
 
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+            model.addAttribute("userList", userList);
 
-                session.setAttribute("user", user1);*/
+            return "system/system_index";
+        }
+        return "error/404";
 
-                return "system/system_index";
-
-       /* }
-        logger.info("用户名1：" + user1.getUserName() + "，密码1：" + user1.getUserPwd() + "，ID1：" + user1.getUserId());
-
-        return "system/login";*/
     }
+
     @RequestMapping(value = "login_index1.do")
     public String login_index1(@RequestParam(value = "userName") String userName, @RequestParam(value = "userPwd") String userPwd, HttpSession session, Model model) throws Exception {
 
@@ -75,20 +70,20 @@ public class SystemController {
         byte[] salt = PasswordUtil.getStaticSalt();
         String ciphertext = PasswordUtil.encrypt(userName, userPwd, salt);
 
-        logger.info("结果"+userPwd.equals(PasswordUtil.decrypt(userName, userPwd, salt)));
+        logger.info("结果" + userPwd.equals(PasswordUtil.decrypt(userName, userPwd, salt)));
         if (null != user1) {
             try {
                 if (userPwd.equals(PasswordUtil.decrypt(ciphertext, userPwd, salt))) {
 
                 }
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
-                session.setAttribute("user", user1);
+            session.setAttribute("user", user1);
 
-                return "system/system_index";
+            return "system/system_index";
 
         }
         logger.info("用户名1：" + user1.getUserName() + "，密码1：" + user1.getUserPwd() + "，ID1：" + user1.getUserId());

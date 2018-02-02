@@ -30,8 +30,8 @@ public class UploadLoadController {
         String url = Constants.FILE_URL + path;
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("url",url);
-        jsonObject.put("path",path);
+        jsonObject.put("url", url);
+        jsonObject.put("path", path);
 
         response.setContentType("application/json,chatset=UTF-8");
         response.getWriter().write(jsonObject.toString());

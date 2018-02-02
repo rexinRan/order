@@ -9,6 +9,10 @@ public class User implements Serializable {
      */
     private String userId;
     /**
+     * 用户头像
+     */
+    private String userImg;
+    /**
      * 姓名
      */
     private String userName;
@@ -17,7 +21,7 @@ public class User implements Serializable {
      */
     private String userPwd;
     /**
-     * 确认密码
+     * 分组
      */
     private String belGroup;
     /**
@@ -75,6 +79,14 @@ public class User implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
+    }
+
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg == null ? null : userImg.trim();
     }
 
     public String getUserName() {
@@ -204,6 +216,7 @@ public class User implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", userId=").append(userId);
+        sb.append(", userImg=").append(userImg);
         sb.append(", userName=").append(userName);
         sb.append(", userPwd=").append(userPwd);
         sb.append(", belGroup=").append(belGroup);

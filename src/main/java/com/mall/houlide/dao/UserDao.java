@@ -7,6 +7,15 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface UserDao {
+
+    List<User> selectUserList();
+
+    User selectByUserId(String userId);
+
+    User selectByUserName(@Param("username") String username);
+
+    List<User> selectByUserIdz(User record);
+
     int countByExample(UserQuery example);
 
     int deleteByExample(UserQuery example);
@@ -21,13 +30,6 @@ public interface UserDao {
 
     int updateByExample(@Param("record") User record, @Param("example") UserQuery example);
 
-    List<User> selectByUserIdz(User user);
-
-    User selectByUserId(String userId);
-
-    User selectByUserName(String username);
-
-    User selectByUserIdorUserPwd(User user);
-
+    User selectByUserIdorUserPwd(User user) throws Exception;
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
  * Created by rexin on 2018/1/25.
  */
 @Service
-public class SaleOrderServiceImpl implements SaleOrderService{
+public class SaleOrderServiceImpl implements SaleOrderService {
 
     @Autowired
     private SaleOrderDao saleOrderDao;

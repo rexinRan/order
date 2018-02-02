@@ -2,8 +2,9 @@ package com.mall.houlide.dao;
 
 import com.mall.houlide.bean.Sale;
 import com.mall.houlide.bean.SaleQuery;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SaleDao {
     int countByExample(SaleQuery example);

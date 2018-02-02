@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <div class="header navbar navbar-inverse navbar-fixed-top">
 
@@ -11,7 +12,7 @@
             <!-- BEGIN LOGO -->
 
             <a class="brand" href="javascript:;"> <img
-                    src="/media/image/logo.png" alt="logo"/>
+                    src="../media/image/logo.png" alt="logo"/>
 
             </a>
 
@@ -21,7 +22,7 @@
 
             <a href="javascript:;" class="btn-navbar collapsed"
                data-toggle="collapse" data-target=".nav-collapse"> <img
-                    src="/media/image/menu-toggler.png" alt=""/>
+                    src="../media/image/menu-toggler.png" alt=""/>
 
             </a>
 
@@ -90,16 +91,7 @@
 
                         <li><a href="inbox.html?a=view"> <span class="photo"><img
                                 src="/media/image/avatar2.jpg" alt="图片显示用户头像"/></span> <span
-                                class="subject"> <span class="from">名字</span> <span
-                                class="time">时间</span>
-
-							</span> <span class="message"> 内容 </span>
-
-                        </a></li>
-
-                        <li><a href="inbox.html?a=view"> <span class="photo"><img
-                                src="/media/image/avatar3.jpg" alt="图片显示用户头像"/></span> <span
-                                class="subject"> <span class="from">名字</span> <span
+                                class="subject"> <span class="from">666</span> <span
                                 class="time">时间</span>
 
 							</span> <span class="message"> 内容 </span>
@@ -163,12 +155,12 @@
                 <!-- END TODO DROPDOWN -->
 
                 <!-- BEGIN USER LOGIN DROPDOWN -->
-
+                <c:forEach items="${userList}" var="userLists">
                 <li class="dropdown user"><a href="#" class="dropdown-toggle"
                                              data-toggle="dropdown"> <img alt=""
-                                                                          src="media/image/avatar1_small.jpg"/> <span
-                        class="username">用户名字</span>
-
+                                                                          src="${userLists.userImg}"/> <span
+                        class="username">${userLists.userName}</span>
+                    </c:forEach>
                     <i class="icon-angle-down"></i>
 
                 </a>

@@ -3,17 +3,15 @@ package com.mall.houlide.bean;
 import java.io.Serializable;
 
 public class OrderState implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * 状态id
      */
     private String stateId;
-
     /**
      * 状态名字
      */
     private String stateName;
-
-    private static final long serialVersionUID = 1L;
 
     public String getStateId() {
         return stateId;

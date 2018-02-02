@@ -7,5 +7,5 @@ package com.mall.houlide.serviceImpl.system.web;
 public interface Constants {
 
     //图片服务器
-    public static final String FILE_URL="http://192.168.200.128/";
+    public static final String FILE_URL = "http://192.168.200.128/";
 }

@@ -2,8 +2,9 @@ package com.mall.houlide.dao;
 
 import com.mall.houlide.bean.OrderState;
 import com.mall.houlide.bean.OrderStateQuery;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface OrderStateDao {
     int countByExample(OrderStateQuery example);

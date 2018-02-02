@@ -23,20 +23,20 @@ public class SaleOrderQuery {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public void setOrderByClause(String orderByClause) {
-        this.orderByClause = orderByClause;
-    }
-
     public String getOrderByClause() {
         return orderByClause;
     }
 
-    public void setDistinct(boolean distinct) {
-        this.distinct = distinct;
+    public void setOrderByClause(String orderByClause) {
+        this.orderByClause = orderByClause;
     }
 
     public boolean isDistinct() {
         return distinct;
+    }
+
+    public void setDistinct(boolean distinct) {
+        this.distinct = distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -72,38 +72,38 @@ public class SaleOrderQuery {
         distinct = false;
     }
 
-    public void setPageNo(Integer pageNo) {
-        this.pageNo=pageNo;
-        this.startRow = (pageNo-1)*this.pageSize;
-    }
-
     public Integer getPageNo() {
         return pageNo;
     }
 
-    public void setStartRow(Integer startRow) {
-        this.startRow=startRow;
+    public void setPageNo(Integer pageNo) {
+        this.pageNo = pageNo;
+        this.startRow = (pageNo - 1) * this.pageSize;
     }
 
     public Integer getStartRow() {
         return startRow;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize=pageSize;
-        this.startRow = (pageNo-1)*this.pageSize;
+    public void setStartRow(Integer startRow) {
+        this.startRow = startRow;
     }
 
     public Integer getPageSize() {
         return pageSize;
     }
 
-    public void setFields(String fields) {
-        this.fields=fields;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+        this.startRow = (pageNo - 1) * this.pageSize;
     }
 
     public String getFields() {
         return fields;
+    }
+
+    public void setFields(String fields) {
+        this.fields = fields;
     }
 
     protected abstract static class GeneratedCriteria {
@@ -722,38 +722,6 @@ public class SaleOrderQuery {
 
         private String typeHandler;
 
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
-        }
-
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -788,6 +756,38 @@ public class SaleOrderQuery {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
+        }
+
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
         }
     }
 }

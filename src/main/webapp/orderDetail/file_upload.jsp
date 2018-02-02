@@ -95,7 +95,8 @@
 
                             <div class="span7">
                                 <div>
-                                    <img width="120px" height="120px" style="float:left " id="allUrl" src="${file.fileUrl}">
+                                    <img width="120px" height="120px" style="float:left " id="allUrl"
+                                         src="${file.fileUrl}">
                                 </div>
                                 <!-- The fileinput-button span is used to style the file input field as button -->
                                 <span class="btn green fileinput-button">

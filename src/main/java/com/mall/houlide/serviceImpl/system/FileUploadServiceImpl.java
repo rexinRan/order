@@ -16,6 +16,6 @@ public class FileUploadServiceImpl implements FileUploadService {
 
     @Override
     public String fileUpload(byte[] file, String name, long size) {
-        return FastFDSUtils.uploaFile(file,name,size);
+        return FastFDSUtils.uploaFile(file, name, size);
     }
 }

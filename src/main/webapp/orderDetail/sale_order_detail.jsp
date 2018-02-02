@@ -99,7 +99,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${pageInfo.list}" var="saleOrders" >
+                                <c:forEach items="${pageInfo.list}" var="saleOrders">
                                     <tr>
                                         <td>${saleOrders.employee.empName}</td>
                                         <td>${saleOrders.customer.cusName}</td>
@@ -112,17 +112,43 @@
                             </table>
                         </div>
                     </div>
-                    <%----%>
-                    <%-- <div class="row">
-                         <div class="col-md-6">
-
-                         </div>
-                     </div>--%>
+                    <%--提示分页信息--%>
+                    <div class="row">
+                        <%--分页文字信息--%>
+                        <div class="col-md-6">
+                            当前记录数:XXXX
+                        </div>
+                        <%--分页条信息--%>
+                        <div class="col-md-6">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li><a href="#">首页</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">   &laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">尾页</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
             </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
         </div>
     </div>
+</div>
 </div>
 
 <!-- BEGIN FOOTER -->

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    pageContext.setAttribute("path",request.getContextPath());
+    pageContext.setAttribute("path", request.getContextPath());
 %>
 <jsp:include page="../common/allJs.jsp"/>
 <jsp:include page="../common/allCss.jsp"/>

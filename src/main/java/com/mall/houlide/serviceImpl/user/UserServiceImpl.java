@@ -35,6 +35,13 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    public List<User> selectUserList() {
+       /* UserQuery userQuery = new UserQuery();
+        userQuery.createCriteria().andUserNameEqualTo();*/
+        return userDao.selectUserList();
+    }
+
+    @Override
     public User selectByUserId(String userId) {
         userDao.selectByUserId(userId);
         return userDao.selectByUserId(userId);
@@ -81,7 +88,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User selectByUserIdorUserPwd(User user) {
+    public User selectByUserIdorUserPwd(User user) throws Exception {
         return userDao.selectByUserIdorUserPwd(user);
     }
 }

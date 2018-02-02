@@ -11,6 +11,8 @@ import java.util.List;
  */
 public interface UserService {
 
+    List<User> selectUserList();
+
     User selectByUserId(String userId);
 
     User selectByUserName(@Param("username") String username);
