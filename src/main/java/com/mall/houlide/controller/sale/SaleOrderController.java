@@ -31,7 +31,7 @@ public class SaleOrderController {
     public String saleList(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model) {
         //传入页码，以及设置每页大小
         PageHelper.startPage(pn, 5);
-        List<SaleOrder> saleLists = saleOrderService.selectAllSaleOrder();
+        List<SaleOrder> saleLists = saleOrderService.selectByExampleAll(null);
         LogUtil.info("结果" + saleOrderService.selectAllSaleOrder());
      /*   for (SaleOrder sale : saleLists) {
                 LogUtil.info("输出2 -- " + sale);

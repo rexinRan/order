@@ -112,7 +112,7 @@
 <script type="text/javascript" src="<%=basePath%>/media/js/additional-methods.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/media/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="<%=basePath%>/media/js/DT_bootstrap.js"></script>
-<script type="text/javascript" src="<%=basePath%>/media/js/table-advanced.js"></script>
+<%--<script type="text/javascript" src="<%=basePath%>/media/js/table-advanced.js"></script>--%>
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="<%=basePath%>/media/js/jquery.fancybox.pack.js"></script>
 <!-- BEGIN:File Upload Plugin JS files-->
@@ -135,10 +135,11 @@
 <!--[if gte IE 8]><script src="../media/js/jquery.xdr-transport.js"></script><![endif]-->
 <!-- END:File Upload Plugin JS files-->
 <!-- END PAGE LEVEL PLUGINS -->
-<script src="<%=basePath%>/media/js/app.js"></script>
 <%--<script src="<%=basePath%>/media/js/form-fileupload.js">--%>
 <script src="<%=basePath%>/media/js/jquery-form.js"></script>
-<script src="<%=basePath%>/media/js/login.js"></script>
 
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 
 <!-- END PAGE LEVEL SCRIPTS -->

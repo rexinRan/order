@@ -12,6 +12,10 @@ import java.util.List;
 public interface SaleOrderService {
 
     //查询所有销售合同的数量
+    List<SaleOrder> selectByExampleAll(SaleOrderQuery example);
+
+    SaleOrder selectByPrimaryKeyAll(Integer saleorderId);
+
     List<SaleOrder> selectAllSaleOrder();
 
     int countByExample(SaleOrderQuery example);

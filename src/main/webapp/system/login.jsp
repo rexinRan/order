@@ -32,14 +32,7 @@
     <jsp:include page="../common/allJs.jsp"/>
     <jsp:include page="../common/allCss.jsp"/>
     <script type="text/javascript">
-        $(function () {
-            optErrMsg();
-        });
-        $("#errMsgContiner").hide();
-        function optErrMsg() {
-            $("#showErrMsg").html('');
-            $("#errMsgContiner").hide();
-        }
+
         //输入验证码，回车登录
         $(document).keydown(function (e) {
             if (e.keyCode == 13) {
@@ -57,76 +50,30 @@
         }
         //表单验证
         function validForm() {
+
             if ($.trim($("#userName").val()).length == 0) {
-                showErrorMsg("请输入用户名");
-                return false;
-            }
+             showErrorMsg("请输入用户名");
+             return false;
+             }
 
-            if ($.trim($("#userPwd").val()).length == 0) {
-                showErrorMsg("请输入密码");
-                return false;
-            }
+             if ($.trim($("#userPwd").val()).length == 0) {
+             showErrorMsg("请输入密码");
+             return false;
+             }
 
-            if ($.trim($("#randCode").val()).length == 0) {
-                showErrorMsg("请输入验证码");
-                return false;
-            }
-            return true;
+             if ($.trim($("#randCode").val()).length == 0) {
+             showErrorMsg("请输入验证码");
+             return false;
+             }
+             alert(validForm.type);
+            return false;
         }
         //登录提示消息显示
         function showErrorMsg(msg) {
             $("#errMsgContiner").show();
-            $("#showErrMsg").html(msg);
+            $('.showErrMsg').html(msg);
             window.setTimeout(optErrMsg, 3000);
         }
-    </script>
-    <script type="text/javascript">
-        $('.login-form').validate({
-            errorElement: 'label', //default input error message container
-            errorClass: 'help-inline', // default input error message class
-            focusInvalid: false, // do not focus the last invalid input
-            rules: {
-                userName: {
-                    required: true
-                },
-                userPwd: {
-                    required: true
-                },
-                remember: {
-                    required: false
-                }
-            },
-
-            messages: {
-                userName: {
-                    required: "请填写用户名."
-                },
-                userPwd: {
-                    required: "请填写密码."
-                }
-            },
-
-            invalidHandler: function (event, validator) { //display error alert on form submit
-                $('.alert-error', $('.login-form')).show();
-            },
-
-            highlight: function (element) { // hightlight error inputs
-                $(element)
-                    .closest('.control-group').addClass('error'); // set error class to the control group
-            },
-
-            success: function (label) {
-                label.closest('.control-group').removeClass('error');
-                label.remove();
-            },
-
-            errorPlacement: function (error, element) {
-                error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
-            },
-
-
-        });
-
     </script>
 
     <link rel="shortcut icon" href="../media/image/favicon.ico"/>
@@ -163,7 +110,7 @@
 
             <button class="close" data-dismiss="alert"></button>
 
-            <span id="showErrMsg">输入你的用户名和密码</span>
+            <span id="errMsgContiner">输入你的用户名和密码</span>
 
         </div>
 
@@ -179,8 +126,9 @@
 
                     <i class="icon-user"></i>
 
-                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="userName"/>
-
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" id="userName"
+                           name="userName"/>
+                    <span class="showErrMsg"></span>
                 </div>
 
             </div>
@@ -197,7 +145,8 @@
 
                     <i class="icon-lock"></i>
 
-                    <input class="m-wrap placeholder-no-fix" type="password" placeholder="密码" name="userPwd"/>
+                    <input class="m-wrap placeholder-no-fix" type="password" placeholder="密码" id="userPwd"
+                           name="userPwd"/>
 
                 </div>
 
@@ -226,7 +175,7 @@
 
             </label>
 
-            <button type="submit" class="btn green pull-right" id="login_index" onclick="validForm()">
+            <button type="submit" class="btn green pull-right" id="login_index" onclick="checkUser()">
 
                 登陆 <i class="m-icon-swapright m-icon-white"></i>
 

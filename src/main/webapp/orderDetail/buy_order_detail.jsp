@@ -27,7 +27,7 @@
         <meta content="" name="description"/>
 
         <meta content="" name="author"/>
-        <link rel="shortcut icon" href="/media/image/favicon.ico"/>
+        <link rel="shortcut icon" href="../media/image/favicon.ico"/>
     </head>
     <!-- BEGIN BODY -->
 
@@ -66,7 +66,7 @@
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-globe"></i>Responsive Table With Expandable details
+                            <div class="caption"><i class="icon-globe"></i>采购列表
                             </div>
                             <div class="tools">
                                 <a href="javascript:;" class="reload"></a>

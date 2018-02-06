@@ -19,6 +19,16 @@ public class SaleOrderServiceImpl implements SaleOrderService {
     private SaleOrderDao saleOrderDao;
 
     @Override
+    public List<SaleOrder> selectByExampleAll(SaleOrderQuery example) {
+        return saleOrderDao.selectByExampleAll(null);
+    }
+
+    @Override
+    public SaleOrder selectByPrimaryKeyAll(Integer saleorderId) {
+        return null;
+    }
+
+    @Override
     public List<SaleOrder> selectAllSaleOrder() {
         return saleOrderDao.selectByExample(null);
     }

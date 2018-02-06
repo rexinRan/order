@@ -21,6 +21,10 @@ public interface SaleOrderDao {
 
     SaleOrder selectByPrimaryKey(Integer saleorderId);
 
+    List<SaleOrder> selectByExampleAll(SaleOrderQuery example);
+
+    SaleOrder selectByPrimaryKeyAll(Integer saleorderId);
+
     int updateByExampleSelective(@Param("record") SaleOrder record, @Param("example") SaleOrderQuery example);
 
     int updateByExample(@Param("record") SaleOrder record, @Param("example") SaleOrderQuery example);
