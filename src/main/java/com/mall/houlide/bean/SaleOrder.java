@@ -81,6 +81,16 @@ public class SaleOrder implements Serializable {
 
     private Customer customer;
 
+    private SaleOrderDetail saleOrderDetail;
+
+    public SaleOrderDetail getSaleOrderDetail() {
+        return saleOrderDetail;
+    }
+
+    public void setSaleOrderDetail(SaleOrderDetail saleOrderDetail) {
+        this.saleOrderDetail = saleOrderDetail;
+    }
+
     public Integer getSaleorderId() {
         return saleorderId;
     }
@@ -172,4 +182,6 @@ public class SaleOrder implements Serializable {
         sb.append("]");
         return sb.toString();
     }
+
+
 }

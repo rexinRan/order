@@ -21,6 +21,17 @@ public class SaleOrderDetail implements Serializable {
      */
     private Double price;
 
+    public Double getCount() {
+        return count;
+    }
+
+    public void setCount(Double count) {
+        this.count = price * quantity;
+    }
+
+    private Double count;
+
+
     public Integer getSaleorderId() {
         return saleorderId;
     }

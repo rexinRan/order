@@ -81,19 +81,8 @@
             ${fields}
         </if>
     </sql>
-
-    <sql id="Employee_Base_Column_List">
-        <if test="fields == null">
-            Employee_ID, Dept_ID, Emp_Name, Duty, Gender, BirthDate, HireDate, MatureDate, IdentityCard,
-            Address, Phone, Email
-        </if>
-        <if test="fields != null">
-            ${fields}
-        </if>
-    </sql>
     <select id="selectByExampleAll" resultMap="BaseResultMap" parameterType="com.mall.houlide.bean.SaleOrderQuery">
         select
-
         <if test="distinct">
             distinct
         </if>
@@ -101,6 +90,7 @@
         from sale_order s
         LEFT JOIN customer c ON s.Customer_ID = c.Customer_ID
         LEFT JOIN employee e ON s.Employee_ID = e.Employee_ID AND s.Dept_ID = e.Dept_ID
+        LEFT JOIN sale_order_detail sa ON sa.SaleOrder_ID = s.SaleOrder_ID
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
