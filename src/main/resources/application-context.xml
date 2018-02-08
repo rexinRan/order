@@ -16,9 +16,18 @@
             </list>
         </property>
     </bean>
+    <!--开启数据监控-->
+    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <!--开启慢查询-->
+        <property name="slowSqlMillis" value="10000"/>
+        <property name="logSlowSql" value="true"/>
+        <!--合并sql-->
+        <property name="mergeSql" value="true"/>
 
+
+    </bean>
     <!--配置alibaba数据源 druid-->
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!--驱动-->
         <property name="driverClassName" value="${driverClassName}"/>
         <property name="url" value="${url}"/>
@@ -34,9 +43,31 @@
 
         <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
         <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <!--保存DruidDataSource的监控记录-->
+        <property name="timeBetweenLogStatsMillis" value="300000"/>
 
         <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
         <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <!--开启数据监控-->
+
+        <property name="useGlobalDataSourceStat" value="true"/>
+        <!--<property name="connectionProperties" value="druid.stat.mergeSql=true"/>-->
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
+
+        <!-- 配置监控统计拦截的filters -->
+        <property name="filters" value="stat"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+            </list>
+        </property>
     </bean>
 
     <bean class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -58,6 +89,7 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 

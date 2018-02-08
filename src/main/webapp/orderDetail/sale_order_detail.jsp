@@ -69,10 +69,10 @@
                             <div class="caption"><i class="icon-globe"></i>显示/隐藏列</div>
                             <div class="actions">
                                 <div class="btn-group">
-                                    <a class="btn" href="#" data-toggle="dropdown">
-                                        列
+                                    <%--<a class="btn" href="#" data-toggle="dropdown">
+
                                         <i class="icon-angle-down"></i>
-                                    </a>
+                                    </a>--%>
                                     <div id="sample_2_column_toggler"
                                          class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
                                         <label><input type="checkbox" checked data-column="0">销售经理</label>

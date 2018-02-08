@@ -56,8 +56,8 @@
         <!-- END BEGIN STYLE CUSTOMIZER -->
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Advanced Tables
-            <small>advanced datatables</small>
+            列表
+            <small><%--advanced datatables--%></small>
         </h3>
         <ul class="breadcrumb">
             <li>
@@ -69,7 +69,7 @@
                 <a href="javascript:;">合同列表</a>
                 <i class="icon-angle-right"></i>
             </li>
-            <li><a href="/to_sale_order_detail.do">销售合同</a></li>
+            <li><a href="/to_buy_order_detail.do">合同</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>

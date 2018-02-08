@@ -36,18 +36,6 @@ public class OrderJumpController {
         return "orderDetail/new_order";
     }
 
-
-    /**
-     * 跳转到采购合同总页面
-     *
-     * @return
-     */
-    @RequestMapping(value = "to_buy_order_detail.do")
-    public String to_buy_order_detail() {
-
-        return "orderDetail/buy_order_detail";
-    }
-
     /**
      * 跳转到质保金页面
      *

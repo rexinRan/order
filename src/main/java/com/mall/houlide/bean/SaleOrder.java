@@ -82,7 +82,7 @@ public class SaleOrder implements Serializable {
     private Customer customer;
 
     private SaleOrderDetail saleOrderDetail;
-
+   
     public SaleOrderDetail getSaleOrderDetail() {
         return saleOrderDetail;
     }
