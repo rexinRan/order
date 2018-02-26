@@ -71,7 +71,7 @@
 
             <ul class="sub-menu">
 
-                <li><a href="ui_general.html"> 采购合同</a></li>
+                <li><a href="/to_buy_order.do"> 采购合同</a></li>
 
                 <li><a href="ui_buttons.html"> 厂家</a></li>
 
